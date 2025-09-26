@@ -174,8 +174,28 @@ function clearError(input) {
   input.style.borderColor = "#ccc";
 }
 
-// const sections = document.querySelectorAll("section");
-// const navLinks = document.querySelectorAll("#navbar a");
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("#navbar a");
+// Scrollspy (add active class on scroll)
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 160; // offset for sticky nav
+    const sectionHeight = section.clientHeight;
+
+    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
 document.querySelectorAll("#navbar a, .enq-form a").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();

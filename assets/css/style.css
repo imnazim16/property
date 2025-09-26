@@ -137,7 +137,9 @@ header {
     font-weight: 500;
     transition: color 0.3s;
 }
-
+.nav-menu a.active{
+    color: var(--secondary);
+}
 .nav-menu a:hover {
     color: var(--secondary);
 }
