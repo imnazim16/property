@@ -173,3 +173,19 @@ function clearError(input) {
   parent.querySelector(".error").innerText = "";
   input.style.borderColor = "#ccc";
 }
+
+// const sections = document.querySelectorAll("section");
+// const navLinks = document.querySelectorAll("#navbar a");
+document.querySelectorAll("#navbar a, .enq-form a").forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    window.scrollTo({
+      top: targetSection.offsetTop - 160, // adjust offset for sticky navbar
+      behavior: "smooth",
+    });
+  });
+});
