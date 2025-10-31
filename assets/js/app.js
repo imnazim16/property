@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".property-card");
   const loadMoreBtn = document.getElementById("loadMoreBtn");
   const itemsPerPage = 6;
-  let currentCategory = "all";
+  let currentCategory = "commercials";
   let currentCount = itemsPerPage;
 
   // Function to filter cards
